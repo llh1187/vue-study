@@ -13,6 +13,7 @@
     "types/*.d.ts"
   ],
   "scripts": {
+    "start": "webpack-dev-server",
     "dev": "rollup -w -c scripts/config.js --environment TARGET:web-full-dev",
     "dev:cjs": "rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs",
     "dev:esm": "rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm",
@@ -136,7 +137,7 @@
     "shelljs": "^0.8.1",
     "typescript": "^2.7.1",
     "uglify-js": "^3.0.15",
-    "webpack": "^3.11.0",
+    "webpack": "4",
     "weex-js-runtime": "^0.23.6",
     "weex-styler": "^0.3.0",
     "yorkie": "^1.0.1"
@@ -145,5 +146,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "html-webpack-plugin": "4.5.2",
+    "vue-loader": "14",
+    "vue-template-compiler": "2",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.7"
   }
 }

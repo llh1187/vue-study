@@ -425,7 +425,7 @@ export function createPatchFunction (backend) {
       if (isUndef(oldStartVnode)) {
         oldStartVnode = oldCh[++oldStartIdx] // Vnode has been moved left
       } else if (isUndef(oldEndVnode)) {
-        oldEndVnode = oldCh[--oldEndIdx]
+        oldEndVnode = oldCh[--oldEndIdx]// Vnode has been moved right
       } else if (sameVnode(oldStartVnode, newStartVnode)) {
         patchVnode(oldStartVnode, newStartVnode, insertedVnodeQueue)
         oldStartVnode = oldCh[++oldStartIdx]
@@ -497,12 +497,22 @@ export function createPatchFunction (backend) {
       if (isDef(c) && sameVnode(node, c)) return i
     }
   }
-
+  /**
+   * 
+   * @param {*} oldVnode 
+   * @param {*} vnode 
+   * @param {*} insertedVnodeQueue 
+   * @param {*} removeOnly 
+   * @returns 
+   * 更新vnode节点，已经确保SameVnoe(oldVnode, vnode) === true
+   * 文本节点 直接更新
+   * 对于子节点列表的新增（old无子节点列表）、删除（new无子节点列表）、详细对比更新（调用patchChildren 进行更新节点（调用patchVnode）移动(必要时候)等操作）
+   */
   function patchVnode (oldVnode, vnode, insertedVnodeQueue, removeOnly) {
     if (oldVnode === vnode) {
       return
     }
-
+    // 新节点赋值旧节点的dom
     const elm = vnode.elm = oldVnode.elm
 
     if (isTrue(oldVnode.isAsyncPlaceholder)) {
@@ -683,6 +693,7 @@ export function createPatchFunction (backend) {
   }
 
   return function patch (oldVnode, vnode, hydrating, removeOnly) {
+    // debugger;
     if (isUndef(vnode)) {
       if (isDef(oldVnode)) invokeDestroyHook(oldVnode)
       return

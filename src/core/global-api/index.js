@@ -18,6 +18,7 @@ import {
 } from '../util/index'
 
 export function initGlobalAPI (Vue: GlobalAPI) {
+  // debugger;
   // config
   const configDef = {}
   configDef.get = () => config

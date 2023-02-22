@@ -16,6 +16,7 @@ import VNode, { createEmptyVNode } from '../vdom/vnode'
 import { isUpdatingChildComponent } from './lifecycle'
 
 export function initRender (vm: Component) {
+  // debugger;
   vm._vnode = null // the root of the child tree
   vm._staticTrees = null // v-once cached trees
   const options = vm.$options
@@ -81,6 +82,7 @@ export function renderMixin (Vue: Class<Component>) {
     let vnode
     try {
       vnode = render.call(vm._renderProxy, vm.$createElement)
+      // debugger;
     } catch (e) {
       handleError(e, vm, `render`)
       // return error render result,

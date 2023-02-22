@@ -2,7 +2,9 @@ import Vue from './instance/index'
 import { initGlobalAPI } from './global-api/index'
 import { isServerRendering } from 'core/util/env'
 import { FunctionalRenderContext } from 'core/vdom/create-functional-component'
-
+// debugger;
+console.log(Vue);
+console.log(typeof Vue);
 initGlobalAPI(Vue)
 
 Object.defineProperty(Vue.prototype, '$isServer', {

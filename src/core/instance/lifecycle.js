@@ -158,7 +158,7 @@ export function mountComponent (
     }
   }
   callHook(vm, 'beforeMount')
-
+  // debugger;
   let updateComponent
   /* istanbul ignore if */
   if (process.env.NODE_ENV !== 'production' && config.performance && mark) {

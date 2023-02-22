@@ -14,7 +14,7 @@ import { queueWatcher } from './scheduler'
 import Dep, { pushTarget, popTarget } from './dep'
 
 import type { SimpleSet } from '../util/index'
-
+window.WatcherArr = [];
 let uid = 0
 
 /**
@@ -50,6 +50,7 @@ export default class Watcher {
     isRenderWatcher?: boolean
   ) {
     this.vm = vm
+    WatcherArr.push(this);
     if (isRenderWatcher) {
       vm._watcher = this
     }

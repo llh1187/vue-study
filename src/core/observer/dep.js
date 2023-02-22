@@ -46,6 +46,7 @@ export default class Dep {
 // this is globally unique because there could be only one
 // watcher being evaluated at any time.
 Dep.target = null
+window.Dep = Dep;
 const targetStack = []
 
 export function pushTarget (_target: ?Watcher) {
