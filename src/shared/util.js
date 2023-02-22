@@ -8,6 +8,7 @@ export function isUndef (v: any): boolean %checks {
   return v === undefined || v === null
 }
 
+
 export function isDef (v: any): boolean %checks {
   return v !== undefined && v !== null
 }
